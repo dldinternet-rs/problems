@@ -40,18 +40,36 @@ jobs:
            cd site
            jekyll build
     - name: Preserve
-      run: |
-           pwd
-           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-           git config --global user.email "github@dev.roadsync.com"
-           git config --global user.name "GitHub Actions"
-           echo git pull github ${GITHUB_REF} --ff-only
+      env:
+        GHA_DEPLOY_KEY: ${{ secrets.GHA_DEPLOY_KEY }}
+      run:  |
+            pwd
 
-           git add -A
-           git status
-           git commit -m "Github Actions: publish changes"
+            if ! git diff --no-ext-diff --quiet --exit-code; then
+              git add .
+              git config --local user.email "gha@github.roadsync.com"
+              git config --local user.name "GitHub Actions"
+              git commit -a -m "Github Actions: publish changes"
+              git remote set-url origin "$(git config --get remote.origin.url | sed 's#http.*com/#git@github.com:#g')"
+              eval `ssh-agent -t 60 -s`
+              echo "$GHA_DEPLOY_KEY" | ssh-add -
+              mkdir -p ~/.ssh/
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+              git push
+              ssh-agent -k
+            fi
 
-           git config --global --list
-           echo Try to push
-           git push github HEAD:${GITHUB_REF}
+            cat - <<EOL
+            git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+            git config --global user.email "github@dev.roadsync.com"
+            git config --global user.name "GitHub Actions"
+            echo git pull github ${GITHUB_REF} --ff-only
 
+            git add -A
+            git status
+            git commit -m "Github Actions: publish changes"
+
+            git config --global --list
+            echo Try to push
+            git push github HEAD:${GITHUB_REF}
+            EOL
