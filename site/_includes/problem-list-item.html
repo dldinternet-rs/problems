@@ -1,0 +1,16 @@
+<li>
+  <a href="{{ problem.url | absolute_url }}" class="post-link">
+    <div class="post-link__heading">
+      {% unless problem.title == "" %}
+          <h1 class="post-link__title">      
+            {{ problem.title }}
+          </h1>
+      {% else %}
+        {% include problem-excerpt.html %}
+      {% endunless %}
+      {% if problem.title != "" and site.show_excerpts == true %}
+        {% include post-excerpt.html %}
+      {% endif %}
+    </div>
+  </a>
+</li>

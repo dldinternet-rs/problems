@@ -1,3 +1,9 @@
+---
+layout: problem
+title:  Problem Schema
+categories: problem
+---
+{% highlight yaml %}
 Problem:
   type: object
   properties:
@@ -38,3 +44,4 @@ Problem:
       description: |
         An absolute URI that identifies the specific occurrence of the problem.
         It may or may not yield further information if dereferenced.
+{% endhighlight %}
