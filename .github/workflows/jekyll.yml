@@ -42,7 +42,11 @@ jobs:
     - name: Preserve
       run: |
            pwd
+           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+           git pull github ${GITHUB_REF} --ff-only
+
            git add -A
+
            git commit -m "Github Actions: publish changes"
-           git push
+           git push github HEAD:${GITHUB_REF}
 
