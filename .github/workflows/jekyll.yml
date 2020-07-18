@@ -39,7 +39,7 @@ jobs:
       run:  |
             cd site
             jekyll build
-            cp ../CNAME .
+            cp ../CNAME ../docs
     - name: Preserve
       run: |
            pwd
