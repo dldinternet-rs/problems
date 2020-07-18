@@ -38,7 +38,7 @@ jobs:
     - name: Publish
       run: |
            cd site
-           jekyll publish
+           jekyll build
     - name: Preserve
       run: |
            pwd
