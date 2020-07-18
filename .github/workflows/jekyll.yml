@@ -43,10 +43,15 @@ jobs:
       run: |
            pwd
            git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-           git pull github ${GITHUB_REF} --ff-only
+           git config --global user.email "github@dev.roadsync.com"
+           git config --global user.name "GitHub Actions"
+           echo git pull github ${GITHUB_REF} --ff-only
 
            git add -A
-
+           git status
            git commit -m "Github Actions: publish changes"
+
+           git config --global --list
+           echo Try to push
            git push github HEAD:${GITHUB_REF}
 
