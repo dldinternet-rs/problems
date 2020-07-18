@@ -36,9 +36,10 @@ jobs:
            which jekyll
            jekyll --version
     - name: Publish
-      run: |
-           cd site
-           jekyll build
+      run:  |
+            cd site
+            jekyll build
+            cp ../CNAME .
     - name: Preserve
       run: |
            pwd
