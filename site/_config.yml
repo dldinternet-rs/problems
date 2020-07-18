@@ -33,7 +33,7 @@ theme: hitchens-theme
 
 #plugins:
 #  - jekyll-feed
-destination: docs
+destination: ../docs
 port: 4040
 # Exclude from processing.
 # The following items will not be processed, by default.

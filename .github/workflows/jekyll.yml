@@ -14,7 +14,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  publish:
 
     runs-on: ubuntu-latest
 
@@ -29,12 +29,20 @@ jobs:
         ruby-version: 2.6
     - name: Install dependencies
       run: bundle install
-    - name: Run check
-      run: gem list
-    - name: Run more checks
+    - name: Run checks
       run: |
            gem list
-           ruby -V
+           ruby -v
            which jekyll
            jekyll --version
-           
+    - name: Publish
+      run: |
+           cd site
+           jekyll publish
+    - name: Preserve
+      run: |
+           pwd
+           git add -A
+           git commit -m "Github Actions: publish changes"
+           git push
+
