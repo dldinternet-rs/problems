@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>RoadSync RFC 7807 Problems &mdash; Blocklist Error</title>
+    <title>RoadSync RFC 7807 Problems &mdash; Common Handler Error</title>
 
     <meta name="description" content="RoadSync "problems" hosting site.">  
 
@@ -31,20 +31,20 @@
 
   
     <h1 class="post-title divided p-name" itemprop="name headline">
-      Blocklist Error
+      Common Handler Error
     </h1>
   
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>A general error occurred in the Blocklist API</p>
+    <p>A error occurred in the API CommonHandler. The developers did not provide additional details in the code which uses the CommonHandler.
+This is a defect in the code that uses the CommonHandler.</p>
 
 <figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://problems.roadsync.com/problem/blocklist-error"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Blocklist error occurred. 
-            An unexpected exception occured attempting to retrieve a list of entries."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://problems.roadsync.com/problem/common-handler-error"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An error occurred in CommonHandler. 
+            An unexpected, unhandled exception occured and the client code did not provide an error type."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exception:: BlocklistError: Blocklist Error: DynamoDB Error: UnrecognizedClientException: 
-                The security token included in the request is invalid. in api_helper.blocklist:78"</span><span class="w">
+  </span><span class="nl">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exception:: Error: CommonHandler consumer software defect"</span><span class="w">
 </span><span class="p">}</span></code></pre></figure>
 
 
