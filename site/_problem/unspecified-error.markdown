@@ -4,7 +4,11 @@ title:  Unspecified Error
 categories: problem
 ---
 
-An unspecified/ non-specialized error occurred. The developers did not catch the error nor provided any additional information. This is considered a software defect and failure to properly handled the error that occurred. 
+An unspecified/ non-specialized error occurred. 
+
+The developers did not catch the error nor provided any additional information. 
+
+This is considered a software defect and failure to properly handle the error that occurred. 
 
 {% highlight json %}
 {
